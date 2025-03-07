@@ -9,15 +9,35 @@
 <body>
     <div class="container">
         <div class="profile">
-            <img src="avatar.jpg" alt="Ảnh đại diện">
-            <h1>Xin chào, tôi là [Tên của bạn]</h1>
-            <p>Tôi là một lập trình viên đam mê công nghệ và phát triển web.</p>
+            <input type="file" id="upload" class="upload-btn" accept="image/*" onchange="previewImage(event)">
+            <img id="avatar" src="avatar.jpg" alt="Ảnh đại diện">
+            <h1>Xin chào, tôi là Nguyễn Hoàng Tiến</h1>
+            <p>Lớp 21DTHF2, sinh viên năm 4 trường Đại học Công Nghệ TP. Hồ Chí Minh</p>
+            <img src="hutech_logo.png" alt="Hutech Logo" width="100">
             <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
+                <a href="https://www.facebook.com/profile.php?id=100015233235334" target="_blank">Facebook</a>
+                <a href="https://github.com/NGHoangTien/NguyenHoangTien.github.io" target="_blank">GitHub</a>
+            </div>
+            <div class="projects">
+                <h2>Đồ án</h2>
+                <ul>
+                    <li>Website quản lý thư viện</li>
+                    <li>Ứng dụng đặt xe thông minh</li>
+                    <li>Trang web đọc truyện trực tuyến</li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('avatar');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 </html>
